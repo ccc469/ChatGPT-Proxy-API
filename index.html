@@ -40,11 +40,13 @@
         <div class="page-header" x-data="{ origin: '' }" x-init="origin = window.location.origin">
             <h2>查询 OpenaiAPI 余额</h2>
             <p>API接口: <span class="proxy" x-text="origin" @click="copyToClipboard(origin)"></span>
-                ;支持批量查询，一行一个；点击清理可以清理失效的key。<a style="text-decoration: none;" href="/about.html">Authorization获取方法</a> </p>
+                ;支持批量查询，一行一个；点击清理可以清理失效的key。<a style="text-decoration: none;" href="/about.html">Authorization获取方法</a>
+            </p>
         </div>
         <main x-data="app" x-cloak>
             <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
-            <textarea class="form-control" rows="5" placeholder="请输入以sess-xxxx开头的Authorization" x-model="u"></textarea></p>
+            <textarea class="form-control" rows="5" placeholder="请输入以sess-xxxx开头的Authorization" x-model="u"></textarea>
+            </p>
             <div class="d-grid gap-2 d-sm-block">
                 <button :class="{ loading }" class="btn btn-primary me-sm-3 " :disabled="loading"
                     @click="submit($refs)">查询</button>
@@ -88,14 +90,6 @@
         <div class="page-footer"></div>
 
     </div>
-    <footer class="footer">
-        <div class="container text-center">
-            <!-- <p class="text-muted" x-data="ip" x-init='$nextTick(() => {getipinfo()})' x-show.transition.opacity="ipinfo"
-                x-text="ipinfo"></p> -->
-            <p>本程序基于Cloudflare Pages，开源于GitHub <a href="https://github.com/x-dr/chatgptProxyAPI"
-                    target="_blank">chatgptProxyAPI</a></p>
-        </div>
-    </footer>
     <script src="./assets/js/openai.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
 </body>
